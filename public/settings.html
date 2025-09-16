@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Settings | Reputation Spark</title>
+   <script src="https://cdn.tailwindcss.com"></script>
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+   <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <style>
+       body {
+           font-family: 'Inter', sans-serif;
+           background-color: #F7FAFC; /* Clean Gray */
+       }
+       h1, h2, h3 {
+           font-family: 'Poppins', sans-serif;
+       }
+       .brand-gradient-bg {
+           background-image: linear-gradient(to right, #2B6CB0, #38B2AC);
+       }
+       /* Custom scrollbar for webkit browsers */
+       ::-webkit-scrollbar {
+           width: 8px;
+       }
+       ::-webkit-scrollbar-track {
+           background: #f1f1f1;
+       }
+       ::-webkit-scrollbar-thumb {
+           background: #d1d5db;
+           border-radius: 10px;
+       }
+       ::-webkit-scrollbar-thumb:hover {
+           background: #9ca3af;
+       }
+       [x-cloak] { display: none !important; }
+   </style>
+</head>
+<body class="bg-gray-100" x-data="{ userPlan: 'free', upgradeModalOpen: false }">
+
+
+   <div class="flex h-screen bg-gray-100" x-data="{ sidebarOpen: false }">
+       <!-- Sidebar -->
+       <aside
+           class="fixed inset-y-0 left-0 z-30 w-64 bg-gray-800 text-white transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0"
+           :class="{'translate-x-0': sidebarOpen, '-translate-x-full': !sidebarOpen}">
+           <!-- Sidebar Header -->
+            <div class="flex items-center justify-center px-6 py-4 h-20 border-b border-gray-700">
+               <a href="reputation_spark_dashboard.html" class="flex items-center space-x-2">
+                   <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10l.75 1.5L14.25 12l-1.5.75L12 14.25l-.75-1.5L9.75 12l1.5-.75L12 10z"></path></svg>
+                   <span class="text-xl font-bold">Reputation<span class="font-light text-teal-400">Spark</span></span>
+               </a>
+           </div>
+           <!-- Sidebar Navigation -->
+           <nav class="mt-4 px-6">
+               <a href="reputation_spark_dashboard.html" class="flex items-center mt-4 py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-gray-100 rounded-lg">
+                   <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                   <span class="mx-3">Review Feed</span>
+               </a>
+               <a href="reputation_spark_sparks_library.html" class="flex items-center mt-4 py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-gray-100 rounded-lg">
+                   <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                   <span class="mx-3">Sparks Library</span>
+               </a>
+               <a href="reputation_spark_settings.html" class="flex items-center mt-4 py-2 px-4 bg-gray-700 text-gray-100 rounded-lg">
+                   <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0 3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                   <span class="mx-3">Settings</span>
+               </a>
+                <a href="reputation_spark_billing.html" class="flex items-center mt-4 py-2 px-4 text-gray-400 hover:bg-gray-700 hover:text-gray-100 rounded-lg">
+                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
+                   <span class="mx-3">Billing</span>
+               </a>
+           </nav>
+       </aside>
+
+
+       <!-- Main content -->
+       <div class="flex-1 flex flex-col overflow-hidden">
+           <!-- Header -->
+           <header class="flex justify-between items-center p-6 bg-white border-b-2 border-gray-200 h-20">
+               <div class="flex items-center">
+                   <!-- Hamburger for mobile -->
+                   <button @click="sidebarOpen = !sidebarOpen" class="text-gray-500 focus:outline-none md:hidden">
+                       <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                           <path d="M4 6H20M4 12H20M4 18H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                       </svg>
+                   </button>
+               </div>
+
+
+               <div class="flex items-center" x-data="{ dropdownOpen: false }">
+                   <div class="relative">
+                       <button @click="dropdownOpen = !dropdownOpen" class="relative z-10 block w-10 h-10 overflow-hidden rounded-full shadow focus:outline-none">
+                           <img class="object-cover w-full h-full" src="https://placehold.co/100x100/E2E8F0/4A5568?text=RB" alt="Your avatar">
+                       </button>
+                       <div x-show="dropdownOpen" @click.away="dropdownOpen = false" x-transition class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white rounded-md shadow-xl" x-cloak>
+                           <a href="reputation_spark_settings.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Settings</a>
+                           <a href="reputation_spark_billing.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Billing</a>
+                           <a href="reputation_spark_login.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-blue-500 hover:text-white">Log Out</a>
+                       </div>
+                   </div>
+               </div>
+           </header>
+
+
+           <!-- Main content area -->
+           <main class="flex-1 overflow-x-hidden overflow-y-auto bg-gray-100 p-6 sm:p-8">
+               <div class="container mx-auto max-w-4xl">
+                   <div class="mb-8">
+                       <h1 class="text-3xl font-bold text-gray-800">Settings</h1>
+                       <p class="mt-2 text-gray-600">Manage your account, connections, and AI preferences.</p>
+                   </div>
+
+
+                   <div class="space-y-8">
+                       <!-- Profile Settings -->
+                       <div class="bg-white p-6 rounded-xl shadow">
+                           <h2 class="text-xl font-bold text-gray-800 border-b pb-4">Profile</h2>
+                           <div class="mt-4 space-y-4">
+                               <div>
+                                   <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
+                                   <input type="text" name="name" id="name" value="Rick Brown" class="mt-1 block w-full sm:max-w-md rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                               </div>
+                               <div>
+                                   <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+                                   <input type="email" name="email" id="email" value="rick.brown@example.com" class="mt-1 block w-full sm:max-w-md rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50" readonly>
+                               </div>
+                               <button class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-sm hover:opacity-90 transition-opacity">Save Changes</button>
+                           </div>
+                       </div>
+
+
+                       <!-- Connected Accounts -->
+                       <div class="bg-white p-6 rounded-xl shadow">
+                           <h2 class="text-xl font-bold text-gray-800 border-b pb-4">Connected Accounts</h2>
+                           <div class="mt-4">
+                               <div class="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
+                                   <div class="flex items-center">
+                                       <svg class="w-6 h-6 mr-3 text-green-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                                       <p class="font-medium text-gray-800">Google Business Profile</p>
+                                   </div>
+                                   <button class="text-sm font-medium text-red-600 hover:text-red-800">Disconnect</button>
+                               </div>
+                               <p class="text-xs text-gray-500 mt-2">This connection allows Reputation Spark to read your reviews and post replies on your behalf.</p>
+                           </div>
+                       </div>
+                      
+                       <!-- AI Configuration -->
+                       <div class="bg-white p-6 rounded-xl shadow">
+                           <h2 class="text-xl font-bold text-gray-800 border-b pb-4">AI Configuration</h2>
+                           <div class="mt-4 space-y-4">
+                               <div>
+                                   <label for="tone" class="block text-sm font-medium text-gray-700">AI Tone of Voice</label>
+                                   <p class="text-xs text-gray-500 mb-2">Give your AI assistant some personality. Describe how you want your replies to sound.</p>
+                                   <textarea id="tone" name="tone" rows="4" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm" placeholder="e.g., Friendly and professional. Always thank the customer by name. Mention we are a family-owned business.">Friendly and professional. Always thank the customer by name.</textarea>
+                               </div>
+                               <div class="relative flex items-start" x-data="{ autopilot: false }">
+                                   <div class="flex h-5 items-center">
+                                       <input id="autopilot" aria-describedby="autopilot-description" name="autopilot" type="checkbox" x-model="autopilot"
+                                              @click="if (userPlan === 'free') { $event.preventDefault(); upgradeModalOpen = true; }"
+                                              class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 cursor-pointer">
+                                   </div>
+                                   <div class="ml-3 text-sm">
+                                       <label for="autopilot" class="font-medium text-gray-700 cursor-pointer">Enable Auto-Pilot <span class="text-xs font-semibold text-teal-600">(Pro Tier Feature)</span></label>
+                                       <p id="autopilot-description" class="text-gray-500">Automatically post replies to 4 and 5-star reviews without manual approval.</p>
+                                   </div>
+                               </div>
+                               <button class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-sm hover:opacity-90 transition-opacity">Save AI Settings</button>
+                           </div>
+                       </div>
+
+
+                   </div>
+               </div>
+           </main>
+       </div>
+   </div>
+  
+   <!-- Upgrade Modal -->
+   <div x-show="upgradeModalOpen" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60" x-cloak>
+       <div @click.away="upgradeModalOpen = false" class="bg-white rounded-xl shadow-2xl w-full max-w-md mx-4 p-6 text-center">
+           <div class="flex justify-center items-center mx-auto h-12 w-12 rounded-full bg-teal-100">
+               <svg class="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+           </div>
+           <h3 class="mt-4 text-xl font-bold text-gray-900">Upgrade to Unlock Auto-Pilot</h3>
+           <p class="mt-2 text-gray-600">The Auto-Pilot feature is available on our Pro plan. Upgrade now to save even more time and put your reputation management on autopilot!</p>
+           <div class="mt-6 flex flex-col sm:flex-row-reverse gap-3">
+                <a href="reputation_spark_billing.html" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 brand-gradient-bg text-base font-medium text-white hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 sm:text-sm">
+                   Upgrade to Pro
+               </a>
+               <button @click="upgradeModalOpen = false" type="button" class="w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm">
+                   Maybe Later
+               </button>
+           </div>
+       </div>
+   </div>
+
+
+</body>
+</html>

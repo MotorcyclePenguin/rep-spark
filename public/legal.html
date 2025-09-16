@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Information | Reputation Spark</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F7FAFC; /* Clean Gray */
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+        }
+        .brand-gradient-bg {
+            background-image: linear-gradient(to right, #2B6CB0, #38B2AC);
+        }
+        .prose h2 {
+            font-size: 1.5em;
+            margin-top: 2em;
+            margin-bottom: 1em;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5em;
+        }
+         .prose h3 {
+            font-size: 1.25em;
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+        }
+        .prose p, .prose li {
+            color: #4A5568;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm" x-data="{ mobileMenuOpen: false }">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex items-center">
+                    <a href="reputation_spark_design.html" class="flex-shrink-0 flex items-center space-x-2">
+                        <!-- Logo Icon -->
+                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10l.75 1.5L14.25 12l-1.5.75L12 14.25l-.75-1.5L9.75 12l1.5-.75L12 10z"></path></svg>
+                        <span class="text-xl font-bold text-gray-800">Reputation<span class="font-light text-teal-600">Spark</span></span>
+                    </a>
+                </div>
+                 <div class="hidden md:flex items-center space-x-8">
+                    <a href="reputation_spark_design.html#features" class="text-gray-600 hover:text-blue-600 font-medium">Features</a>
+                    <a href="reputation_spark_design.html#pricing" class="text-gray-600 hover:text-blue-600 font-medium">Pricing</a>
+                    <a href="reputation_spark_login.html" class="text-gray-600 hover:text-blue-600 font-medium">Log In</a>
+                    <a href="reputation_spark_signup.html" class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-md hover:opacity-90 transition-opacity">
+                        Start for Free
+                    </a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button @click="mobileMenuOpen = !mobileMenuOpen" class="inline-flex items-center justify-center p-2 rounded-md text-gray-600 hover:text-gray-800 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+        <!-- Mobile menu -->
+        <div x-show="mobileMenuOpen" x-transition class="md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white">
+                <a href="reputation_spark_design.html#features" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Features</a>
+                <a href="reputation_spark_design.html#pricing" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Pricing</a>
+                <a href="reputation_spark_login.html" class="block px-3 py-2 rounded-md text-base font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50">Log In</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-16 sm:py-20">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-4xl">
+            <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-lg">
+                <div class="text-center mb-10">
+                    <h1 class="text-4xl font-bold text-gray-900">Legal Information</h1>
+                    <p class="mt-2 text-gray-500">Last updated: September 15, 2025</p>
+                </div>
+                
+                <article class="prose max-w-none">
+                    <h2>Terms of Service</h2>
+                    <p>Welcome to Reputation Spark! These terms and conditions outline the rules and regulations for the use of our website and services. By accessing this website we assume you accept these terms and conditions. Do not continue to use Reputation Spark if you do not agree to all of the terms and conditions stated on this page.</p>
+                    
+                    <h3>1. Accounts</h3>
+                    <p>When you create an account with us, you must provide us with information that is accurate, complete, and current at all times. Failure to do so constitutes a breach of the Terms, which may result in immediate termination of your account on our Service.</p>
+
+                    <h3>2. Subscriptions</h3>
+                    <p>Some parts of the Service are billed on a subscription basis. You will be billed in advance on a recurring and periodic basis ("Billing Cycle"). Billing cycles are set either on a monthly or annual basis, depending on the type of subscription plan you select when purchasing a subscription.</p>
+
+                    <h3>3. Content</h3>
+                    <p>Our Service allows you to post, link, store, share and otherwise make available certain information, text, graphics, or other material ("Content"). You are responsible for the Content that you post on or through the Service, including its legality, reliability, and appropriateness.</p>
+
+                    <h2>Privacy Policy</h2>
+                    <p>This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.</p>
+
+                    <h3>1. Information Collection and Use</h3>
+                    <p>We collect several different types of information for various purposes to provide and improve our Service to you. Types of Data Collected include Personal Data (Email address, Name) and Usage Data.</p>
+
+                    <h3>2. Use of Data</h3>
+                    <p>Reputation Spark uses the collected data for various purposes: to provide and maintain our Service; to notify you about changes to our Service; to provide customer support; to gather analysis or valuable information so that we can improve our Service.</p>
+                    
+                    <h3>3. Connection to Google Services</h3>
+                    <p>To provide our core functionality, our application uses OAuth 2.0 to access the Google Business Profile API. We request permission to read and manage your business's reviews. We only store the review content and your replies. We do not store any other personal information from your Google Account. All data is handled securely.</p>
+
+                    <h3>4. Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, please contact us by email: support@reputationspark.com</p>
+                </article>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
