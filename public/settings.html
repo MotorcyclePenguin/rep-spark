@@ -48,7 +48,7 @@
            <!-- Sidebar Header -->
             <div class="flex items-center justify-center px-6 py-4 h-20 border-b border-gray-700">
                <a href="reputation_spark_dashboard.html" class="flex items-center space-x-2">
-                   <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10l.75 1.5L14.25 12l-1.5.75L12 14.25l-.75-1.5L9.75 12l1.5-.75L12 10z"></path></svg>
+                   <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                    <span class="text-xl font-bold">Reputation<span class="font-light text-teal-400">Spark</span></span>
                </a>
            </div>
@@ -116,7 +116,35 @@
                        <!-- Profile Settings -->
                        <div class="bg-white p-6 rounded-xl shadow">
                            <h2 class="text-xl font-bold text-gray-800 border-b pb-4">Profile</h2>
-                           <div class="mt-4 space-y-4">
+                           <form id="profileForm" class="mt-4 space-y-4">
+                               <!-- Logo Upload Section -->
+                               <div>
+                                   <label class="block text-sm font-medium text-gray-700 mb-2">Profile Logo</label>
+                                   <div class="flex items-center space-x-4">
+                                       <div class="flex-shrink-0">
+                                           <img id="logoPreview" class="h-16 w-16 rounded-lg border border-gray-300 object-cover" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI1NjNlYiIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNOSAxMmwyIDIgNC00bTUuNjE4LTQuMDE2QTExLjk1NSAxMS45NTUgMCAwMTEyIDIuOTQ0YTExLjk1NSAxMS45NTUgMCAwMS04LjYxOCAzLjA0QTEyLjAyIDEyLjAyIDAgMDAzIDljMCA1LjU5MSAzLjgyNCAxMC4yOSA5IDExLjYyMiA1LjE3Ni0xLjMzMiA5LTYuMDMgOS0xMS42MjIgMC0xLjA0Mi0uMTMzLTIuMDUyLS4zODItMy4wMTZ6Ij48L3BhdGg+PC9zdmc+" alt="Current logo">
+                                       </div>
+                                       <div class="flex-1">
+                                           <div class="flex space-x-2">
+                                               <button type="button" id="uploadLogoBtn" class="inline-flex items-center px-3 py-2 border border-gray-300 shadow-sm text-sm leading-4 font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                                   <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                                                   </svg>
+                                                   Upload Logo
+                                               </button>
+                                               <button type="button" id="deleteLogoBtn" class="inline-flex items-center px-3 py-2 border border-red-300 shadow-sm text-sm leading-4 font-medium rounded-md text-red-700 bg-white hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+                                                   <svg class="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                                                   </svg>
+                                                   Delete
+                                               </button>
+                                           </div>
+                                           <input type="file" id="logoFileInput" accept="image/*" class="hidden">
+                                           <p class="mt-1 text-xs text-gray-500">PNG, JPG, SVG up to 2MB</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
                                <div>
                                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
                                    <input type="text" name="name" id="name" value="Rick Brown" class="mt-1 block w-full sm:max-w-md rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
@@ -125,8 +153,14 @@
                                    <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
                                    <input type="email" name="email" id="email" value="rick.brown@example.com" class="mt-1 block w-full sm:max-w-md rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm bg-gray-50" readonly>
                                </div>
-                               <button class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-sm hover:opacity-90 transition-opacity">Save Changes</button>
-                           </div>
+                               <button type="submit" id="saveProfileBtn" class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-sm hover:opacity-90 transition-opacity">
+                                   <span class="button-text">Save Changes</span>
+                                   <svg class="hidden animate-spin h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24">
+                                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                   </svg>
+                               </button>
+                           </form>
                        </div>
 
 
@@ -148,7 +182,7 @@
                        <!-- AI Configuration -->
                        <div class="bg-white p-6 rounded-xl shadow">
                            <h2 class="text-xl font-bold text-gray-800 border-b pb-4">AI Configuration</h2>
-                           <div class="mt-4 space-y-4">
+                           <form id="aiForm" class="mt-4 space-y-4">
                                <div>
                                    <label for="tone" class="block text-sm font-medium text-gray-700">AI Tone of Voice</label>
                                    <p class="text-xs text-gray-500 mb-2">Give your AI assistant some personality. Describe how you want your replies to sound.</p>
@@ -165,14 +199,46 @@
                                        <p id="autopilot-description" class="text-gray-500">Automatically post replies to 4 and 5-star reviews without manual approval.</p>
                                    </div>
                                </div>
-                               <button class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-sm hover:opacity-90 transition-opacity">Save AI Settings</button>
-                           </div>
+                               <button type="submit" id="saveAiBtn" class="px-5 py-2 brand-gradient-bg text-white font-semibold rounded-lg shadow-sm hover:opacity-90 transition-opacity">
+                                   <span class="button-text">Save AI Settings</span>
+                                   <svg class="hidden animate-spin h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24">
+                                       <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                       <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                   </svg>
+                               </button>
+                           </form>
                        </div>
 
 
                    </div>
                </div>
            </main>
+       </div>
+   </div>
+ 
+   <!-- Notification Toast -->
+   <div id="toast" class="fixed top-4 right-4 z-50 transform translate-x-full transition-transform duration-300 ease-in-out">
+       <div class="bg-white rounded-lg shadow-lg border-l-4 p-4 max-w-sm">
+           <div class="flex items-center">
+               <div id="toastIcon" class="flex-shrink-0">
+                   <!-- Success icon -->
+                   <svg class="hidden success-icon w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                   </svg>
+                   <!-- Error icon -->
+                   <svg class="hidden error-icon w-5 h-5 text-red-500" fill="currentColor" viewBox="0 0 20 20">
+                       <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                   </svg>
+               </div>
+               <div class="ml-3">
+                   <p id="toastMessage" class="text-sm font-medium text-gray-800"></p>
+               </div>
+               <button onclick="hideToast()" class="ml-4 text-gray-400 hover:text-gray-600">
+                   <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                       <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                   </svg>
+               </button>
+           </div>
        </div>
    </div>
   
@@ -194,6 +260,222 @@
            </div>
        </div>
    </div>
+
+   <script>
+   // Toast notification functions
+   function showToast(message, type = 'success') {
+       const toast = document.getElementById('toast');
+       const toastMessage = document.getElementById('toastMessage');
+       const successIcon = toast.querySelector('.success-icon');
+       const errorIcon = toast.querySelector('.error-icon');
+       
+       toastMessage.textContent = message;
+       
+       // Hide all icons first
+       successIcon.classList.add('hidden');
+       errorIcon.classList.add('hidden');
+       
+       // Show appropriate icon
+       if (type === 'success') {
+           successIcon.classList.remove('hidden');
+           toast.querySelector('.border-l-4').className = 'bg-white rounded-lg shadow-lg border-l-4 border-green-500 p-4 max-w-sm';
+       } else {
+           errorIcon.classList.remove('hidden');
+           toast.querySelector('.border-l-4').className = 'bg-white rounded-lg shadow-lg border-l-4 border-red-500 p-4 max-w-sm';
+       }
+       
+       // Show toast
+       toast.classList.remove('translate-x-full');
+       
+       // Auto hide after 5 seconds
+       setTimeout(() => {
+           hideToast();
+       }, 5000);
+   }
+   
+   function hideToast() {
+       document.getElementById('toast').classList.add('translate-x-full');
+   }
+   
+   // Loading state helpers
+   function setButtonLoading(button, isLoading) {
+       const buttonText = button.querySelector('.button-text');
+       const spinner = button.querySelector('svg');
+       
+       if (isLoading) {
+           buttonText.textContent = 'Saving...';
+           spinner.classList.remove('hidden');
+           button.disabled = true;
+           button.classList.add('opacity-75', 'cursor-not-allowed');
+       } else {
+           buttonText.textContent = button.id === 'saveProfileBtn' ? 'Save Changes' : 'Save AI Settings';
+           spinner.classList.add('hidden');
+           button.disabled = false;
+           button.classList.remove('opacity-75', 'cursor-not-allowed');
+       }
+   }
+   
+   // Profile form submission
+   document.getElementById('profileForm').addEventListener('submit', async (e) => {
+       e.preventDefault();
+       
+       const button = document.getElementById('saveProfileBtn');
+       setButtonLoading(button, true);
+       
+       try {
+           const formData = new FormData(e.target);
+           const profileData = {
+               name: formData.get('name'),
+               email: formData.get('email')
+           };
+           
+           const response = await fetch('/api/user/profile', {
+               method: 'POST',
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(profileData)
+           });
+           
+           if (!response.ok) {
+               throw new Error(`Server error: ${response.status}`);
+           }
+           
+           const result = await response.json();
+           showToast('Profile updated successfully!', 'success');
+           
+       } catch (error) {
+           console.error('Profile update error:', error);
+           showToast('Failed to update profile. Please try again.', 'error');
+       } finally {
+           setButtonLoading(button, false);
+       }
+   });
+   
+   // AI form submission
+   document.getElementById('aiForm').addEventListener('submit', async (e) => {
+       e.preventDefault();
+       
+       const button = document.getElementById('saveAiBtn');
+       setButtonLoading(button, true);
+       
+       try {
+           const formData = new FormData(e.target);
+           const aiData = {
+               tone: formData.get('tone'),
+               autopilot: formData.get('autopilot') === 'on'
+           };
+           
+           const response = await fetch('/api/user/ai', {
+               method: 'POST',
+               headers: {
+                   'Content-Type': 'application/json',
+               },
+               body: JSON.stringify(aiData)
+           });
+           
+           if (!response.ok) {
+               throw new Error(`Server error: ${response.status}`);
+           }
+           
+           const result = await response.json();
+           showToast('AI settings updated successfully!', 'success');
+           
+       } catch (error) {
+           console.error('AI settings update error:', error);
+           showToast('Failed to update AI settings. Please try again.', 'error');
+       } finally {
+           setButtonLoading(button, false);
+       }
+   });
+   
+   // Logo upload functionality
+   document.getElementById('uploadLogoBtn').addEventListener('click', () => {
+       document.getElementById('logoFileInput').click();
+   });
+   
+   document.getElementById('logoFileInput').addEventListener('change', async (e) => {
+       const file = e.target.files[0];
+       if (!file) return;
+       
+       // Validate file size (2MB limit)
+       if (file.size > 2 * 1024 * 1024) {
+           showToast('File size must be less than 2MB', 'error');
+           return;
+       }
+       
+       // Validate file type
+       if (!file.type.startsWith('image/')) {
+           showToast('Please select a valid image file', 'error');
+           return;
+       }
+       
+       try {
+           const formData = new FormData();
+           formData.append('logo', file);
+           
+           const response = await fetch('/api/user/logo', {
+               method: 'POST',
+               body: formData
+           });
+           
+           if (!response.ok) {
+               throw new Error(`Server error: ${response.status}`);
+           }
+           
+           const result = await response.json();
+           
+           // Update preview image
+           if (result.logoUrl) {
+               document.getElementById('logoPreview').src = result.logoUrl;
+           }
+           
+           showToast('Logo uploaded successfully!', 'success');
+           
+       } catch (error) {
+           console.error('Logo upload error:', error);
+           showToast('Failed to upload logo. Please try again.', 'error');
+       }
+   });
+   
+   // Logo delete functionality
+   document.getElementById('deleteLogoBtn').addEventListener('click', async () => {
+       if (!confirm('Are you sure you want to delete your logo? This action cannot be undone.')) {
+           return;
+       }
+       
+       try {
+           const response = await fetch('/api/user/logo', {
+               method: 'DELETE'
+           });
+           
+           if (!response.ok) {
+               throw new Error(`Server error: ${response.status}`);
+           }
+           
+           // Reset to default logo
+           document.getElementById('logoPreview').src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzI1NjNlYiIgdmlld0JveD0iMCAwIDI0IDI0IiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSIyIiBkPSJNOSAxMmwyIDIgNC00bTUuNjE4LTQuMDE2QTExLjk1NSAxMS45NTUgMCAwMTEyIDIuOTQ0YTExLjk1NSAxMS45NTUgMCAwMS04LjYxOCAzLjA0QTEyLjAyIDEyLjAyIDAgMDAzIDljMCA1LjU5MSAzLjgyNCAxMC4yOSA5IDExLjYyMiA1LjE3Ni0xLjMzMiA5LTYuMDMgOS0xMS42MjIgMC0xLjA0Mi0uMTMzLTIuMDUyLS4zODItMy4wMTZ6Ij48L3BhdGg+PC9zdmc+";
+           
+           showToast('Logo deleted successfully!', 'success');
+           
+       } catch (error) {
+           console.error('Logo delete error:', error);
+           showToast('Failed to delete logo. Please try again.', 'error');
+       }
+   });
+   
+   // Make sidebar links functional by adding click handlers
+   document.addEventListener('DOMContentLoaded', () => {
+       // Add click event handlers to sidebar links to ensure they work
+       const sidebarLinks = document.querySelectorAll('aside a[href]');
+       sidebarLinks.forEach(link => {
+           link.addEventListener('click', (e) => {
+               // Allow normal navigation - just add some feedback
+               console.log('Navigating to:', link.href);
+           });
+       });
+   });
+   </script>
 
 
 </body>
